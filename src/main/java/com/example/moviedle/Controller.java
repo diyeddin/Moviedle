@@ -6,9 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-import java.util.List;
-import java.util.PriorityQueue;
-
 
 public class Controller {
     @FXML

@@ -2,17 +2,10 @@ package com.example.moviedle;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.cell.ComboBoxTableCell;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class Main extends Application {
