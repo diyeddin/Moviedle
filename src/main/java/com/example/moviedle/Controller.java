@@ -33,11 +33,11 @@ public class Controller {
     public void onEnterPressed(ActionEvent event) {
         setBtnGuess(event);
     }
-    public void onTextEdited(ActionEvent event) {
+    public void onTextEdited() {
         List<String> suggestions = this.model.getSuggestions(txtField.getText());
         listView.setItems(FXCollections.observableArrayList(suggestions));
     }
-    public void onMouseClicked(ActionEvent event) {
+    public void onMouseClicked() {
         txtField.setText(listView.getSelectionModel().selectedItemProperty().get());
     }
     public void restart() {
