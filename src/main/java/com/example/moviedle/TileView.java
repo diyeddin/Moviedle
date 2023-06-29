@@ -23,9 +23,10 @@ public class TileView {
     }
     public HBox getTileRow() {
         ImageView poster = new ImageView(new Image(movieInfo.moviePosterLink));
-        poster.setPreserveRatio(true);
+        poster.setFitWidth(100);
         poster.setFitHeight(80);
         this.row.getChildren().add(poster);
+
         List<String> movieInfoList = movieInfo.asList();
         List<String> randomMovieList = randomMovie.asList();
         for (int i = 0; i < movieInfoList.size(); i++) {

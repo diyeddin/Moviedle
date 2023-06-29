@@ -3,7 +3,6 @@ package com.example.moviedle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -12,8 +11,6 @@ import java.util.List;
 
 
 public class Controller {
-    @FXML
-    private Button btnGuess;
     @FXML
     private TextField txtField;
     @FXML
