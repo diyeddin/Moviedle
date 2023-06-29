@@ -1,10 +1,14 @@
 package com.example.moviedle;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 
 public class Controller {
@@ -14,26 +18,32 @@ public class Controller {
     private TextField txtField;
     @FXML
     private VBox vbox;
+    @FXML
+    private ListView<String> listView;
 
     private Model model;
 
     public Controller() {
         this.model = Model.getInstance();
-        this.vbox = new VBox();
-        this.txtField = new TextField();
     }
     public void setBtnGuess(ActionEvent event) {
         this.model.updateTiles(this.txtField.getText());
-        VBox tiles = this.model.getvBox();
-        this.vbox.getChildren().addAll(tiles.getChildren());
-//        this.txtField.setText("");
+        this.vbox.getChildren().addAll(this.model.getvBox().getChildren());
     }
     public void onEnterPressed(ActionEvent event) {
         setBtnGuess(event);
+    }
+    public void onTextEdited(ActionEvent event) {
+        List<String> suggestions = this.model.getSuggestions(txtField.getText());
+        listView.setItems(FXCollections.observableArrayList(suggestions));
+    }
+    public void onMouseClicked(ActionEvent event) {
+        txtField.setText(listView.getSelectionModel().selectedItemProperty().get());
     }
     public void restart() {
         this.model.restart();
         this.vbox.getChildren().clear();
         this.txtField.setText("");
+        this.listView.getItems().clear();
     }
 }

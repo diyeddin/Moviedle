@@ -15,6 +15,7 @@ public class Movie {
     public String director;
     public String star;
     public String imdbLink;
+    public String moviePosterLink;
     public BooleanProperty found = new SimpleBooleanProperty(false);
 
     public Movie() {
@@ -29,16 +30,9 @@ public class Movie {
         this.director = parts.get(5);
         this.star = parts.get(6);
         this.imdbLink = parts.get(7);
+        this.moviePosterLink = parts.get(8);
     }
-//    public Movie(String title, String year, String genre, String origin, String director, String star, String imdbLink) {
-//        this.title = title;
-//        this.year = year;
-//        this.genre = genre;
-//        this.origin = origin;
-//        this.director = director;
-//        this.star = star;
-//        this.imdbLink = imdbLink;
-//    }
+
     public List<String> asList() {
         List<String> list = new ArrayList<>();
         list.add(title);
@@ -53,7 +47,11 @@ public class Movie {
     private List<String> partsFromLine(String line) {
         return Arrays.asList(line.split(";"));
     }
-//    public boolean isEmpty() {
-//        return
-//    }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Movie){
+            return this.title.equals(((Movie) obj).title) && this.star.equals(((Movie) obj).star) && this.director.equals(((Movie) obj).director);
+        }
+        return false;
+    }
 }

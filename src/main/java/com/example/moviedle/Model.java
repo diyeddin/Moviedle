@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class Model {
     private List<Movie> data = new ArrayList<>();
-    private Path path = Paths.get("res/imdb_top_250.csv");
+    private Path path = Paths.get("res/imdb_top_250_with_posters.csv");
     private VBox vBox;
     private Movie randomMovie;
     public IntegerProperty counter;
@@ -27,7 +27,6 @@ public class Model {
 
     private Model() {
         this.loadData(this.path);
-//        this.data = data.subList(1, data.size());
         this.randomMovie = this.selectRandomMovie();
         this.vBox = new VBox();
         this.counter = new SimpleIntegerProperty(0);
@@ -90,13 +89,14 @@ public class Model {
     public VBox getvBox() {
         return vBox;
     }
+    public List<String> getSuggestions(String search) {
+        List<String> suggestions = new ArrayList<>();
 
-//    public List<String> getSuggestions(String search) {
-//        List<String> suggestions = new ArrayList<>();
-//
-//        for (List<String> movie: this.data)
-//            if (movie.get(colNames.indexOf("Title")).toLowerCase().startsWith(search.toLowerCase()))
-//                suggestions.add(movie.get(colNames.indexOf("Title")));
-//        return suggestions;
-//    }
+        if (!search.isEmpty())
+            for (Movie movie: this.data)
+                if (movie.title.toLowerCase().startsWith(search.toLowerCase()))
+                    suggestions.add(movie.title);
+
+        return suggestions;
+    }
 }
