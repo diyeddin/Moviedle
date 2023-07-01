@@ -26,6 +26,7 @@ public class Controller {
     public void setBtnGuess(ActionEvent event) {
         this.model.updateTiles(this.txtField.getText());
         this.vbox.getChildren().addAll(this.model.getvBox().getChildren());
+        this.txtField.setText("");
     }
     public void onEnterPressed(ActionEvent event) {
         setBtnGuess(event);

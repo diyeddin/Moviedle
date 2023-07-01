@@ -17,8 +17,8 @@ import java.util.Random;
 
 
 public class Model {
-    private List<Movie> data = new ArrayList<>();
     private Path path = Paths.get("res/imdb_top_250_with_posters.csv");
+    private List<Movie> data = new ArrayList<>();
     private VBox vBox;
     private Movie randomMovie;
     public IntegerProperty counter;
@@ -44,8 +44,8 @@ public class Model {
 
     private void loadData(Path path){
         try (BufferedReader br = Files.newBufferedReader(path)) {
-            String header = br.readLine(); // header
-            String line = br.readLine();
+            String line = br.readLine(); // header
+            line = br.readLine();
 
             while (line != null) {
                 Movie movie = new Movie(line);
